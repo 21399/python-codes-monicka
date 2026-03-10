@@ -1,0 +1,7 @@
+import numpy
+n, m = map(int, input().split())
+array = numpy.array([input().split() for _ in range(n)], float)
+print(numpy.mean(array, axis=1))
+print(numpy.var(array, axis=0))
+std_val = numpy.std(array)
+print(round(std_val, 11))
