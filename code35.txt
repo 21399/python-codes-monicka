@@ -1,0 +1,12 @@
+import numpy
+n, m = map(int, input().split())
+storage = []
+for _ in range(n):
+    row = list(map(int, input().split()))
+    storage.append(row)
+
+my_array = numpy.array(storage)
+sum_axis_0 = numpy.sum(my_array, axis=0)
+result = numpy.prod(sum_axis_0)
+
+print(result)
