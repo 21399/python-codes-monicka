@@ -1,0 +1,24 @@
+from datetime import datetime
+
+def time_delta(t1, t2):
+    # Format: Day Date Month Year Time Timezone
+    # Example: Sun 10 May 2015 13:54:36 -0700
+    fmt = '%a %d %b %Y %H:%M:%S %z'
+    
+    # Parse strings into timezone-aware datetime objects
+    dt1 = datetime.strptime(t1, fmt)
+    dt2 = datetime.strptime(t2, fmt)
+    
+    # Calculate absolute difference in total seconds
+    return str(int(abs((dt1 - dt2).total_seconds())))
+
+if __name__ == '__main__':
+    # Read number of test cases
+    try:
+        t = int(input().strip())
+        for _ in range(t):
+            t1 = input().strip()
+            t2 = input().strip()
+            print(time_delta(t1, t2))
+    except EOFError:
+        pass

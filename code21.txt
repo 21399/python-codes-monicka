@@ -1,0 +1,11 @@
+import math
+n = int(input())
+letters = input().split()
+k = int(input())
+a_count = letters.count('a')
+non_a_count = n - a_count
+total_combinations = math.comb(n, k)
+favorable_none = math.comb(non_a_count, k)
+prob_no_a = favorable_none / total_combinations
+ans = 1 - prob_no_a
+print(f"{ans:.4f}")
