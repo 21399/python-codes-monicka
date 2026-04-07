@@ -1,0 +1,24 @@
+ode45clc;
+close all;
+clear all;
+
+f = input('Enter the frequency: ');
+hb = input('Enter base station height: ');
+hm = input('Enter mobile station height: ');
+a = (1.1*log10(f)-0.7)*hm-(1.56*log10(f)-0.8);
+c = 3;
+d = 1:1:100;
+p_free = 32.44 + (20*log10(f)) + (20*log10(d));
+if (f >= 150 && f <= 1500)
+    poh = 69.55 + 26.16*log10(f) - 13.82*log10(hb) - a + (44.9 - 6.55*log10(hb))*log10(d);
+    pch = poh + c;   
+    plot(d, p_free, 'r', d, poh, 'b', d, pch, 'g');
+    legend('Free Space Model', 'Okumura Hata', 'Okumura Hata COST 231');
+else
+    plot(d, p_free);
+    legend('Free Space Model');
+end
+xlabel('Distance (km)');
+ylabel('Path Loss (dB)');
+title('Path Loss Comparison');
+grid on;
