@@ -1,0 +1,11 @@
+from collections import Counter
+
+# Read input
+k = int(input())
+rooms = list(map(int, input().split()))
+
+# Using Counter to find the element with frequency 1
+room_counts = Counter(rooms)
+captain_room = [room for room, count in room_counts.items() if count == 1][0]
+
+print(captain_room)
