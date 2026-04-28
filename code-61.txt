@@ -1,0 +1,14 @@
+
+n, x = map(int, input().split())
+
+sheet = []
+for _ in range(x):
+    # Read each subject's scores and convert to float
+    scores = map(float, input().split())
+    sheet.append(scores)
+
+for student_scores in zip(*sheet):
+    # Calculate average
+    average = sum(student_scores) / x
+    # Print result formatted to 1 decimal place
+    print(f"{average:.1f}")
